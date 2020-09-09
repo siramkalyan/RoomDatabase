@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
+    tools:context=".UpdateActivity">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,40 +14,28 @@
         android:textColor="#E30707"
         android:layout_margin="10dp"
         android:layout_gravity="center"
-     />
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter the username"
-        android:id="@+id/edittext_username"
+        android:id="@+id/update_username"
         android:layout_margin="10dp"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="enter the rollno"
-        android:id="@+id/edittext_rollno"
+        android:id="@+id/update_rollno"
         android:layout_margin="10dp"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="Update"
         android:id="@+id/save_button"
         android:layout_gravity="center"
-        android:onClick="saveData"
+        android:onClick="updateData"
         android:layout_margin="10dp"/>
-   <!-- <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Retrive"
-        android:id="@+id/retrive_button"
-        android:onClick="retriveData"
-        android:layout_margin="10dp"/>-->
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recycler_view"/>
 
 </LinearLayout>

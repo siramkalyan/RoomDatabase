@@ -1,5 +1,6 @@
 package com.example.roomdatabase;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -11,12 +12,16 @@ import java.util.List;
 @Dao
 public interface StudentDao {
     @Insert
-   public void insert(StudentEntity entity);
+    public void insert(StudentEntity entity);
+
     @Delete
-   public void delete(StudentEntity entity);
+    public void delete(StudentEntity entity);
+
     @Update
-   public void update(StudentEntity entity);
+    public void update(StudentEntity entity);
+
     @Query("SELECT * FROM userdetails")
-   public List<StudentEntity> retrive();
+    public LiveData<List<StudentEntity>> retrive();
+    //public List<StudentEntity> retrive();
 
 }

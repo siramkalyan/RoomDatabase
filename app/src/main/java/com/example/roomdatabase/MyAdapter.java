@@ -1,10 +1,12 @@
 package com.example.roomdatabase;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,7 +34,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.StudentViewHolder>
     public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
         holder.name.setText(list.get(position).getName());
         holder.roll.setText(list.get(position).getRollnum());
-
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //MainActivity.database.studentDao().delete(list.get(position));
+                MainActivity.viewModel.delete(list.get(position));
+                Toast.makeText(studentctx,holder.name.getText(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -50,6 +59,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.StudentViewHolder>
             roll=itemView.findViewById(R.id.text_rollnum);
             delete=itemView.findViewById(R.id.text_delete);
             /* fragments with live data */
+            edit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    String nn=name.getText().toString();
+                    String rr=roll.getText().toString();
+                    Intent i=new Intent(studentctx,UpdateActivity.class);
+                    i.putExtra("key1",nn);
+                    i.putExtra("key2",rr);
+                    studentctx.startActivity(i);
+                }
+            });
         }
     }
 }
